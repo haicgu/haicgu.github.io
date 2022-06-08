@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Access to HAICGU &#8212; HAICGU 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">HAICGU 0.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="access-to-haicgu">
+<h1>Access to HAICGU<a class="headerlink" href="#access-to-haicgu" title="Permalink to this heading">¶</a></h1>
+<section id="getting-an-account">
+<h2>Getting an Account<a class="headerlink" href="#getting-an-account" title="Permalink to this heading">¶</a></h2>
+<p>Currently, accounts can only be created manually. Please send the following information:</p>
+<ul class="simple">
+<li><p>Full Name</p></li>
+<li><p>Email Adress</p></li>
+<li><p>Public SSH key in OpenSSH format</p></li>
+</ul>
+<p>to <a class="reference external" href="mailto:s&#46;nassyr&#37;&#52;&#48;fz-juelich&#46;de">s<span>&#46;</span>nassyr<span>&#64;</span>fz-juelich<span>&#46;</span>de</a></p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>If you want to use the AI nodes/hardware, please also specify this in the email, as you need to be added to a specific user group in order to access the hardware and libraries. You can also ask to be added to this group at a later date.</p>
+</div>
+</section>
+<section id="accessing-the-cluster">
+<h2>Accessing the cluster<a class="headerlink" href="#accessing-the-cluster" title="Permalink to this heading">¶</a></h2>
+<p>You have to add some clauses to your ssh config:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># GUOEHI</span>
+<span class="n">Host</span> <span class="n">guoehi</span>
+  <span class="n">HostName</span> <span class="mf">141.2.112.17</span>
+  <span class="n">User</span> <span class="n">yourusername</span>
+  <span class="n">ServerAliveInterval</span> <span class="mi">60</span>
+  <span class="n">IdentityFile</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">your</span><span class="o">/</span><span class="n">private</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">key</span>
+  <span class="n">IdentitiesOnly</span> <span class="n">yes</span>
+<span class="n">Host</span> <span class="n">guoehi</span><span class="o">-</span><span class="n">dev</span>
+  <span class="n">HostName</span> <span class="n">dev</span>
+  <span class="n">user</span> <span class="n">yourusername</span>
+  <span class="n">ProxyCommand</span> <span class="n">ssh</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">W</span> <span class="o">%</span><span class="n">h</span><span class="p">:</span><span class="o">%</span><span class="n">p</span> <span class="n">guoehi</span>
+</pre></div>
+</div>
+<p>Replacing <code class="docutils literal notranslate"><span class="pre">yourusername</span></code> and <code class="docutils literal notranslate"><span class="pre">/path/to/your/private/ssh/key</span></code> accordingly.</p>
+<p>On a MacOS or Linux machine, this goes into <code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code> .</p>
+<p>On Windows 10 and higher, when using the built-in OpenSSH, this goes into <code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\.ssh\config</span></code> (not tested)</p>
+<p>You can now access the dev node by typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">guoehi</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>on your machine</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The old “guoehi” name is still used by multiple internal software components, therefore it has been left in the ssh config to avoid confusing users if they see it in the output of a program on the cluster.</p>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Cluster usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hiaswnotes.html">Notes from installing AI software stack</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/access.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, OEHI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
