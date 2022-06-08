@@ -10,9 +10,9 @@ Welcome to HAICGU's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-  usage
-  conf
-  hiaswnotes
+  usage.rst
+  conf.rst
+  hiaswnotes.rst
 
 Indices and tables
 ==================
