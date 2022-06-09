@@ -10,7 +10,7 @@ Currently, accounts can only be created manually. Please send the following info
 - Email Adress
 - Public SSH key in OpenSSH format
 
-to s.nassyr@fz-juelich.de
+to haicgu@fias.uni-frankfurt.de
 
 .. attention:: If you want to use the AI nodes/hardware, please also specify this in the email, as you need to be added to a specific user group in order to access the hardware and libraries. You can also ask to be added to this group at a later date.
 

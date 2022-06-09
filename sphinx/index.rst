@@ -12,7 +12,6 @@ Welcome to HAICGU's documentation!
 
   access.rst
   usage.rst
-  hiaswnotes.rst
 
 Indices and tables
 ==================

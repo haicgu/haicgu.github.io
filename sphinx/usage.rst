@@ -8,9 +8,9 @@ HAICGU uses a software stack based on EasyBuild_. The recipes for building softw
 
 .. _EasyBuild: https://easybuild.io/
 
-.. _juawei-easyconfigs: https://gitlab.jsc.fz-juelich.de/nassyr1/juawei-easyconfigs/
+.. _sn-easyconfigs: https://github.com/stepannassyr/sn-easyconfigs
 
-__ juawei-easyconfigs_
+__ sn-easyconfigs_
 
 The built software is made accessible to users as modules with LMod_. 
 
