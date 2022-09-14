@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Welcome to HAICGU cluster documentation &#8212; HAICGU 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -91,6 +91,7 @@ The Goethe University Frankfurt is part of the National High-Performance Computi
 <p>Open source software is used for the cluster software environment. The cluster is built on Rocky Linux 8 with SLURM as a job scheduler. Lustre in combination with ZFS is used to provide a high-performance parallel filesystem to the users. EasyBuild is used extensively to install and configure software packages: GCC, OpenMPI, Python, SciPy and others. The AI software stack is built on top of Huawei’s CANN (Compute Architecture for Neural Networks) toolkit, which will support AI frameworks like TensorFlow, PyTorch, ONNX and Mindspore.</p>
 <p>For any queries, please contact karthee dot Sivalingam at huawei.com</p>
 <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="access.html">Access to HAICGU</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="access.html#getting-an-account">Getting an Account</a></li>
@@ -102,6 +103,14 @@ The Goethe University Frankfurt is part of the National High-Performance Computi
 <li class="toctree-l2"><a class="reference internal" href="usage.html#using-modules">Using modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="usage.html#ai-software-stack">AI software stack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="usage.html#using-slurm">Using SLURM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide_huawei_aifae.html">Ascend- AI Cluster Quick Environment Setup &amp; User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide_huawei_aifae.html#model-conversion-with-atc">1 - Model Conversion with ATC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide_huawei_aifae.html#training">2 - Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide_huawei_aifae.html#inference">3 - Inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide_huawei_aifae.html#faq-s">4 - FAQ’s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide_huawei_aifae.html#useful-links">5 - Useful Links</a></li>
 </ul>
 </li>
 </ul>
@@ -125,9 +134,11 @@ The Goethe University Frankfurt is part of the National High-Performance Computi
         <div class="sidebar">
           
           <h3>Table of Contents</h3>
-          <ul>
+          <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="access.html">Access to HAICGU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Cluster usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide_huawei_aifae.html">Ascend- AI Cluster Quick Environment Setup &amp; User Guide</a></li>
 </ul>
 
           <div role="search">
@@ -163,7 +174,7 @@ The Goethe University Frankfurt is part of the National High-Performance Computi
           
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, OEHI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
     </div>
         </div>
         <div class="clearer"></div>

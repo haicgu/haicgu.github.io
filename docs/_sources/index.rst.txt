@@ -58,8 +58,9 @@ For any queries, please contact karthee dot Sivalingam at huawei.com
    :maxdepth: 2
    :caption: Contents:
 
-  access.rst
-  usage.rst
+   access.rst
+   usage.rst
+   user_guide_huawei_aifae.rst
 
 Indices and tables
 ==================
