@@ -105,7 +105,8 @@ Training Script::
 
 2.1.1.3 Example Usage
 -----------------------
- - Example Repo : LeNet_ . 
+Example Repo : LeNet_ . 
+ 
 .. _LeNet: https://gitee.com/tianyu__zhou/pytorch_lenet_on_npu
 
 Environment Preperation::
