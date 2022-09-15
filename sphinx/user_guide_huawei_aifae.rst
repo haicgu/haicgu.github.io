@@ -106,9 +106,8 @@ Training Script::
 
 2.1.1.3 Example Usage
 -----------------------
-- Example Repo : LeNet_ . 
- 
-.. _LeNet: https://gitee.com/tianyu__zhou/pytorch_lenet_on_npu
+- Example Repo : LENET_
+.. _LENET: https://gitee.com/tianyu__zhou/pytorch_lenet_on_npu
 
 Environment Preperation::
     
@@ -168,8 +167,8 @@ Training Script::
 2.2.1.6 - Example Usage
 -----------------------
 
-- Example Repo : LeNet_ . 
-.. _LeNet: https://gitee.com/ascend/ModelZoo-TensorFlow/tree/master/TensorFlow/built-in/nlp/LeNet_ID0127_for_TensorFlow
+- Example Repo : LeNet_git_ . 
+.. _LeNet_git: https://gitee.com/ascend/ModelZoo-TensorFlow/tree/master/TensorFlow/built-in/nlp/LeNet_ID0127_for_TensorFlow
 
 Environment Preperation::
     
@@ -278,9 +277,9 @@ Offline inference means, running an operation with model which translated with A
 
 3.1.1 - C++ (ACL)
 -----------------------
-This document_ provides guidance for developing deep neural network (DNN) apps based on existing models by using C language APIs provided by the Ascend Computing Language (AscendCL), for such purposes as target recognition and image classification.
+This ACL-document_ provides guidance for developing deep neural network (DNN) apps based on existing models by using C language APIs provided by the Ascend Computing Language (AscendCL), for such purposes as target recognition and image classification.
 
-.. _document: https://www.hiascend.com/document/detail/en/canncommercial/504/inferapplicationdev/aclcppdevg/aclcppdevg_000000.html 
+.. _ACL-document: https://www.hiascend.com/document/detail/en/canncommercial/504/inferapplicationdev/aclcppdevg/aclcppdevg_000000.html 
 
 3.1.1.1 -  Module Load
 -----------------------
@@ -347,9 +346,9 @@ Run the Script::
  3.1.2 - Python (PyACL)
 -----------------------
 
-This document_ provides guidance for developers to develop deep neural network (DNN) applications for purposes including target recognition and image classification based on existing models and Python APIs provided by Python Ascend Computing Language (pyACL).
+This PyACL-document_ provides guidance for developers to develop deep neural network (DNN) applications for purposes including target recognition and image classification based on existing models and Python APIs provided by Python Ascend Computing Language (pyACL).
 
-.. _document: https://www.hiascend.com/document/detail/en/canncommercial/504/inferapplicationdev/aclpythondevg/aclpythondevg_0000.html
+.. _PyACL-document: https://www.hiascend.com/document/detail/en/canncommercial/504/inferapplicationdev/aclpythondevg/aclpythondevg_0000.html
 
 3.1.2.4 - Module Load
 -----------------------
