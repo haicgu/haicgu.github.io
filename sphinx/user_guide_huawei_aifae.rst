@@ -1,4 +1,4 @@
-﻿==============================================================================
+==============================================================================
 Ascend- AI Cluster Quick Environment Setup & User Guide
 ==============================================================================
 
@@ -6,7 +6,9 @@ Ascend- AI Cluster Quick Environment Setup & User Guide
 1 - Model Conversion with ATC
 ==============================================================================
 
-You can use `ATC (Ascend Tensor Compiler) <https://support.huaweicloud.com/intl/en-us/ti-atc-A200_3000/ATC_Tool_Instructions.pdf>` to convert network models trained on open source frameworks to offline models supported by Ascend AI Processor.
+You can use ATC_ (Ascend Tensor Compiler) to convert network models trained on open source frameworks to offline models supported by Ascend AI Processor.
+
+.. _ATC: https://support.huaweicloud.com/intl/en-us/ti-atc-A200_3000/ATC_Tool_Instructions.pdf
 
 1.1 - Module Load
 -----------------------
@@ -254,7 +256,8 @@ Run the script::
     cat slurm-1079.out
     >>> [...]
     
-For Further Examples: TensorFlow2_ . 
+For Further Examples: TensorFlow2_ .
+
 .. _TensorFlow2:  https://gitee.com/ascend/ModelZoo-TensorFlow/tree/master/TensorFlow2/built-in/cv/image_classification/BYOL_ID0721_for_TensorFlow2.X
 
 3 - Inference
@@ -276,7 +279,7 @@ Offline inference means, running an operation with model which translated with A
 -----------------------
 This document_ provides guidance for developing deep neural network (DNN) apps based on existing models by using C language APIs provided by the Ascend Computing Language (AscendCL), for such purposes as target recognition and image classification.
 
-.. _document https://www.hiascend.com/document/detail/en/canncommercial/504/inferapplicationdev/aclcppdevg/aclcppdevg_000000.html 
+.. _document: https://www.hiascend.com/document/detail/en/canncommercial/504/inferapplicationdev/aclcppdevg/aclcppdevg_000000.html 
 
 3.1.1.1 -  Module Load
 -----------------------
@@ -343,7 +346,9 @@ Run the Script::
  3.1.2 - Python (PyACL)
 -----------------------
 
-This `document <https://www.hiascend.com/document/detail/en/canncommercial/504/inferapplicationdev/aclpythondevg/aclpythondevg_0000.html>` provides guidance for developers to develop deep neural network (DNN) applications for purposes including target recognition and image classification based on existing models and Python APIs provided by Python Ascend Computing Language (pyACL).
+This document_ provides guidance for developers to develop deep neural network (DNN) applications for purposes including target recognition and image classification based on existing models and Python APIs provided by Python Ascend Computing Language (pyACL).
+
+.. _document: https://www.hiascend.com/document/detail/en/canncommercial/504/inferapplicationdev/aclpythondevg/aclpythondevg_0000.html
 
 3.1.2.4 - Module Load
 -----------------------
@@ -372,7 +377,9 @@ Inference Script::
 
 3.1.2.6 - Example Usage:
 -----------------------
-- Example Repo: `YOLOv3 <https://gitee.com/ascend/samples/tree/master/python/level2_simple_inference/2_object_detection/YOLOV3_coco_detection_picture>`
+- Example Repo: YOLOv3_
+
+.. _YOLOv3: https://gitee.com/ascend/samples/tree/master/python/level2_simple_inference/2_object_detection/YOLOV3_coco_detection_picture
 
 Environment Preperation::
     
@@ -555,11 +562,13 @@ Output::
 
 4.3 - How can I convert my model?
 -----------------------
-You can use ATC to convert your trained model to om (offline model). For more information click `here <https://support.huawei.com/enterprise/en/doc/EDOC1100192457/2a40d134/atc-tool>`.
+You can use ATC to convert your trained model to om (offline model). For more information click here_.
+
+.. _here: https://support.huawei.com/enterprise/en/doc/EDOC1100192457/2a40d134/atc-tool
 
 4.4 - How can I see the status of NPU's?
 -----------------------
-You can see by writing ```srun -p a800-9000 npu-smi info``` .
+You can see by writing ``srun -p a800-9000 npu-smi info`` .
 
 4.5 - I am trying to train model from Ascend-Modelzoo but I can't find the example data.
 -----------------------
@@ -567,11 +576,11 @@ Most of the models don't have their own built in data. So that you should provid
 
 4.6 - I can't run my Tensorflow Script!
 -----------------------
-Be careful. There are two different TF module to use. One supports 1.15 and other supports 2.4. So that try to change between ```module load GCC/9.5.0 OpenMPI TensorFlow-CANN/2.4.1``` and ```module load GCC/9.5.0 OpenMPI TensorFlow-CANN/1.15.0```
+Be careful. There are two different TF module to use. One supports 1.15 and other supports 2.4. So that try to change between ``module load GCC/9.5.0 OpenMPI TensorFlow-CANN/2.4.1`` and ``module load GCC/9.5.0 OpenMPI TensorFlow-CANN/1.15.0``
 
 4.7 - My module can not find OpenCV or any other package!
 -----------------------
-Add OpenCV or anything you want at the end of your module command like ```module load GCC/9.5.0 OpenMPI CANN-Toolkit OpenCV``` 
+Add OpenCV or anything you want at the end of your module command like ``module load GCC/9.5.0 OpenMPI CANN-Toolkit OpenCV``
 
 5 - Useful Links
 ==============================================================================
