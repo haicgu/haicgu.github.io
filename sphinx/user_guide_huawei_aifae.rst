@@ -105,7 +105,7 @@ Training Script::
 
 2.1.1.3 Example Usage
 -----------------------
-Example Repo : LeNet_ . 
+- Example Repo : LeNet_ . 
  
 .. _LeNet: https://gitee.com/tianyu__zhou/pytorch_lenet_on_npu
 
@@ -167,7 +167,7 @@ Training Script::
 2.2.1.6 - Example Usage
 -----------------------
 
- - Example Repo : LeNet_ . 
+- Example Repo : LeNet_ . 
 .. _LeNet: https://gitee.com/ascend/ModelZoo-TensorFlow/tree/master/TensorFlow/built-in/nlp/LeNet_ID0127_for_TensorFlow
 
 Environment Preperation::
@@ -532,7 +532,9 @@ If pytorch is installed correctly, The error can be fixed by removing the```impo
 -----------------------
 While creating the resnet50_infer_for_pytorch.py file, you need to edit the data path part. 
 If you comment out the line ```valdir = os.path.join(args.data, 'val')``` and write ```args.data``` instead of the ```valdir``` assigned to the ```val_loader``` variable, the problem will go away.
-    ```
+
+Output::
+
     # =========================================================================
     # Initialize the database.
     # =========================================================================
@@ -550,7 +552,7 @@ If you comment out the line ```valdir = os.path.join(args.data, 'val')``` and wr
         ])),
         batch_size=args.batch_size, shuffle=True,
         num_workers=args.workers, pin_memory=True)
-    ```
+
 4.3 - How can I convert my model?
 -----------------------
 You can use ATC to convert your trained model to om (offline model). For more information click `here <https://support.huawei.com/enterprise/en/doc/EDOC1100192457/2a40d134/atc-tool>`.
