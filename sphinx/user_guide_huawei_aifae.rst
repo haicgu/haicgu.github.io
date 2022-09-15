@@ -80,8 +80,7 @@ Environment preparation::
     module load GCC/9.5.0 OpenMPI PyTorch-CANN/1.5.0
     
 
-Note::
-- If you want to train model with mixed precision, you also need to load Apex module
+Note: If you want to train model with mixed precision, you also need to load Apex module ::
     
     module load apex
     
@@ -267,7 +266,9 @@ Model inference is the process of using a trained model to infer a result from l
 
 
 Note::
- - A310 chips are developed much smaller than A910 chips to bring inference solutions in real life more easily with lesser power consumption with more affordable price. You can discover more from the `link <https://www.hiascend.com/hardware/product>`
+ - A310 chips are developed much smaller than A910 chips to bring inference solutions in real life more easily with lesser power consumption with more affordable price. You can discover more from the link_ .
+ 
+.. _link: https://www.hiascend.com/hardware/product
 
 
 3.1 - Offline Inference
@@ -403,7 +404,11 @@ Inference Script::
     python3 object_detect.py ../data/
     EOF
     
-For further examples: `Tensorflow2 Gitee Repository <https://gitee.com/ascend/ModelZoo-TensorFlow/tree/master/TensorFlow2/built-in>` , `PyACL Repository <https://gitee.com/tianyu__zhou/pyacl_samples/tree/a800>`, `Example C++ Inference Repository <https://gitee.com/ktuna/acl_multi_stream_inference>`
+For further examples: Tensorflow_ 2 Gitee Repository  , PyACL_ Repository , Example C++ Inference_ Repository 
+
+.. _Tensorflow: https://gitee.com/ascend/ModelZoo-TensorFlow/tree/master/TensorFlow2/built-in
+.. _PyACL: https://gitee.com/tianyu__zhou/pyacl_samples/tree/a800
+.. _Inference: https://gitee.com/ktuna/acl_multi_stream_inference
 
 3.2 - Online Inference
 -----------------------
@@ -439,7 +444,9 @@ Inference Script::
     
 3.2.1.9 - Example Usage
 -----------------------
-Example Repo: `ResNet-50 <https://gitee.com/ascend/pytorch/blob/master/docs/en/PyTorch%20Online%20Inference%20Guide/PyTorch%20Online%20Inference%20Guide.md#sample-code>`
+Example Repo: ResNet_-50 
+
+.. _ResNet: https://gitee.com/ascend/pytorch/blob/master/docs/en/PyTorch%20Online%20Inference%20Guide/PyTorch%20Online%20Inference%20Guide.md#sample-code
 Environmental Preperation:::
     
     module load GCC/9.5.0 OpenMPI PyTorch-CANN/1.5.0  
@@ -448,8 +455,9 @@ Environmental Preperation:::
     
     vim resnet50_infer_for_pytorch.py  #paste the code in here
     
-- Visit `Ascend ModelZoo <https://www.hiascend.com/software/modelzoo>` and click Download Model to download a pre-trained ResNet-50 model.
+- Visit Ascend ModelZoo_  and click Download Model to download a pre-trained ResNet-50 model.
 
+.. _ModelZoo: https://www.hiascend.com/software/modelzoo
 
 Inference Script::
     
@@ -500,14 +508,20 @@ Inference Script::
 
 3.2.2.12 - Example Usage
 -----------------------
-- Example Repo: `FAceNet <https://gitee.com/tianyu__zhou/pyacl_samples/tree/a800/facenet>`
+- Example Repo:`FaceNet_ 
+
+.. _FaceNet: https://gitee.com/tianyu__zhou/pyacl_samples/tree/a800/facenet
+
 Environmental Preperation::
     
     module load GCC/9.5.0 OpenMPI Tensorlfow-CANN/1.15.0 
     git clone https://gitee.com/tianyu__zhou/pyacl_samples.git
     cd ./pyacl_samples/facenet
     
-- Visit `FaceNet Original Repo <https://github.com/davidsandberg/facenet>` and click Download Model to download a pre-trained Facenet model.
+- Visit FaceNet Original Repository_  and click Download Model to download a pre-trained Facenet model.
+
+.. _Repository: https://github.com/davidsandberg/facenet
+
 Inference Script::
     
     module cat <<EOF > batchscript.sh 
