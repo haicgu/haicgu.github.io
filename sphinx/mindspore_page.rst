@@ -27,21 +27,6 @@ Quick Check::
 
     srun -p a800-9000 python3 -c 'from mindspore import context;context.set_context(mode=context.GRAPH_MODE, device_target="Ascend")'
 
-2.2 - pip installation
------------------------------------
-
-Command::
-
-    pip install mindspore-ascend==1.6.2
-
-Quick Check::
-
-    srun -p a800-9000 python3 -c 'from mindspore import context;context.set_context(mode=context.GRAPH_MODE, device_target="Ascend")'
-
-Note: Path export may require if the required environment variable not declared before::
-
-    export LD_LIBRARY_PATH=$ASCEND_OPP_PATH/op_impl/builtin/ai_core/tbe/op_tiling:$LD_LIBRARY_PATH
-
 
 
 3 - Code Examples for Testing
