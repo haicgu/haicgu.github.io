@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Ascend- AI Cluster Quick Environment Setup &amp; User Guide &#8212; HAICGU 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -14,6 +14,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Cluster usage" href="usage.html" /> 
@@ -246,18 +247,18 @@ module load GCC/9.5.0 OpenMPI TensorFlow-CANN/1.15.0</p>
 </div>
 </section>
 <section id="id8">
-<h3>2.3.1.9 - Example Usage<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<h3>2.3.1.9 - Example Usage<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
-<li>Example Usage: <a class="reference external" href="https://gitee.com/tianyu__zhou/tf2_lenet_on_npu">LeNetMNIST</a> .</li>
+<li><p>Example Usage: <a class="reference external" href="https://gitee.com/tianyu__zhou/tf2_lenet_on_npu/blob/master/train_npu.py">LeNetMNIST</a> .</p></li>
 </ul>
 <p>Environment Preperation:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">GCC</span><span class="o">/</span><span class="mf">9.5</span><span class="o">.</span><span class="mi">0</span> <span class="n">OpenMPI</span> <span class="n">TensorFlow</span><span class="o">-</span><span class="n">CANN</span><span class="o">/</span><span class="mf">2.4</span><span class="o">.</span><span class="mi">1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">GCC</span><span class="o">/</span><span class="mf">9.5.0</span> <span class="n">OpenMPI</span> <span class="n">TensorFlow</span><span class="o">-</span><span class="n">CANN</span><span class="o">/</span><span class="mf">2.4.1</span>
 <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">gitee</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tianyu__zhou</span><span class="o">/</span><span class="n">tf2_lenet_on_npu</span><span class="o">.</span><span class="n">git</span>
 <span class="n">cd</span> <span class="n">tf2_lenet_on_npu</span>
 </pre></div>
 </div>
 <p>Training Script:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">cat</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span> <span class="o">&gt;</span> <span class="n">batchscript</span><span class="o">.</span><span class="n">sh</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">cat</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span> <span class="o">&gt;</span> <span class="n">batchscript</span><span class="o">.</span><span class="n">sh</span>
 <span class="c1">#!/bin/bash</span>
 <span class="c1">#SBATCH --partition=a800-9000</span>
 <span class="c1">#SBATCH --time=00:10:00</span>
@@ -269,15 +270,15 @@ module load GCC/9.5.0 OpenMPI TensorFlow-CANN/1.15.0</p>
 </pre></div>
 </div>
 <p>Run the script:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="n">batchscript</span><span class="o">.</span><span class="n">sh</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="n">batchscript</span><span class="o">.</span><span class="n">sh</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Submitted</span> <span class="n">batch</span> <span class="n">job</span> <span class="mi">1079</span>
 <span class="n">cat</span> <span class="n">slurm</span><span class="o">-</span><span class="mf">1079.</span><span class="n">out</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>For Further Examples: <a class="reference external" href="https://gitee.com/ascend/ModelZoo-TensorFlow/tree/master/TensorFlow2/built-in/cv/image_classification/BYOL_ID0721_for_TensorFlow2.X">TensorFlow2</a> .</p>
-</div>
-</div>
+</section>
+</section>
 <section id="inference">
 <h2>3 - Inference<a class="headerlink" href="#inference" title="Permalink to this heading">¶</a></h2>
 <p>Model inference is the process of using a trained model to infer a result from live data. Ascend 310 chips supports only inference.</p>
@@ -687,7 +688,7 @@ If you comment out the line <code class="docutils literal notranslate"><span cla
           
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, OEHI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
         </div>
         <div class="clearer"></div>

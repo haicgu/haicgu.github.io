@@ -226,14 +226,14 @@ Training Script::
 
 2.3.1.9 - Example Usage
 -----------------------
-- Example Usage: BYOL_ .
-.. _BYOL: https://gitee.com/ascend/ModelZoo-TensorFlow/tree/master/TensorFlow2/built-in/cv/image_classification/BYOL_ID0721_for_TensorFlow2.X
+- Example Usage: LeNetMNIST_ .
+.. _LeNetMNIST: https://gitee.com/tianyu__zhou/tf2_lenet_on_npu/blob/master/train_npu.py
 
 Environment Preperation::
     
     module load GCC/9.5.0 OpenMPI TensorFlow-CANN/2.4.1
-    git clone https://gitee.com/ascend/ModelZoo-TensorFlow.git
-    cd ModelZoo-TensorFlow/TensorFlow2/built-in/cv/image_classification/BYOL_ID0721_for_TensorFlow2.X
+    git clone https://gitee.com/tianyu__zhou/tf2_lenet_on_npu.git
+    cd tf2_lenet_on_npu
     
 Training Script::
     
@@ -244,7 +244,7 @@ Training Script::
     #SBATCH --ntasks=1 
     #SBATCH --nodes=1 
     npu-smi info
-    python retraining.py --encoder resnet18 --num_epochs 1 --batch_size 64
+    python3 train_npu.py
     EOF
     
 Run the script::
