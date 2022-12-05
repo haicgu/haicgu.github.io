@@ -42,59 +42,69 @@
 <section id="mindspore">
 <h2>1 - MindSpore<a class="headerlink" href="#mindspore" title="Permalink to this heading">¶</a></h2>
 <p>Through community cooperation, this open Al framework best matches with Ascend processors and supports multi-processor architectures for all scenarios. It brings data scientists, algorithm engineers, and developers with friendly development, efficient running, and flexible deployment, and boosts the development of the Al software and hardware ecosystem.</p>
-<p>Official Page: <a class="reference external" href="https://www.mindspore.cn/en">Mindspore</a></p>
+<p>Official Page: <a href="#id3"><span class="problematic" id="id4">Mindspore_</span></a></p>
 </section>
 <section id="mindspore-environment-module-load">
 <h2>2 - MindSpore Environment Module Load<a class="headerlink" href="#mindspore-environment-module-load" title="Permalink to this heading">¶</a></h2>
 <section id="predownloaded-module-load">
 <h3>2.1 - Predownloaded Module Load<a class="headerlink" href="#predownloaded-module-load" title="Permalink to this heading">¶</a></h3>
-<dl class="simple">
-<dt>Command::</dt><dd><p>module load GCC/9.5.0 OpenMPI MindSpore</p>
-</dd>
-<dt>Quick Check::</dt><dd><p>srun -p a800-9000 python3 -c ‘from mindspore import context;context.set_context(mode=context.GRAPH_MODE, device_target=”Ascend”)’</p>
-</dd>
-</dl>
+<p>Command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">GCC</span><span class="o">/</span><span class="mf">9.5.0</span> <span class="n">OpenMPI</span> <span class="n">MindSpore</span>
+</pre></div>
+</div>
+<p>Quick Check:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">srun</span> <span class="o">-</span><span class="n">p</span> <span class="n">a800</span><span class="o">-</span><span class="mi">9000</span> <span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;from mindspore import context;context.set_context(mode=context.GRAPH_MODE, device_target=&quot;Ascend&quot;)&#39;</span>
+</pre></div>
+</div>
 </section>
 <section id="pip-installation">
 <h3>2.2 - pip installation<a class="headerlink" href="#pip-installation" title="Permalink to this heading">¶</a></h3>
-<dl class="simple">
-<dt>Command::</dt><dd><p>pip install mindspore-ascend==1.6.2</p>
-</dd>
-<dt>Quick Check::</dt><dd><p>srun -p a800-9000 python3 -c ‘from mindspore import context;context.set_context(mode=context.GRAPH_MODE, device_target=”Ascend”)’</p>
-</dd>
-<dt>Note: Path export may require if the required environment variable not declared before::</dt><dd><p>export LD_LIBRARY_PATH=$ASCEND_OPP_PATH/op_impl/builtin/ai_core/tbe/op_tiling:$LD_LIBRARY_PATH</p>
-</dd>
-</dl>
+<p>Command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">mindspore</span><span class="o">-</span><span class="n">ascend</span><span class="o">==</span><span class="mf">1.6.2</span>
+</pre></div>
+</div>
+<p>Quick Check:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">srun</span> <span class="o">-</span><span class="n">p</span> <span class="n">a800</span><span class="o">-</span><span class="mi">9000</span> <span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;from mindspore import context;context.set_context(mode=context.GRAPH_MODE, device_target=&quot;Ascend&quot;)&#39;</span>
+</pre></div>
+</div>
+<p>Note: Path export may require if the required environment variable not declared before:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export LD_LIBRARY_PATH=$ASCEND_OPP_PATH/op_impl/builtin/ai_core/tbe/op_tiling:$LD_LIBRARY_PATH
+</pre></div>
+</div>
 </section>
 </section>
 <section id="code-examples-for-testing">
 <h2>3 - Code Examples for Testing<a class="headerlink" href="#code-examples-for-testing" title="Permalink to this heading">¶</a></h2>
 <section id="example-1">
 <h3>3.1 - Example 1<a class="headerlink" href="#example-1" title="Permalink to this heading">¶</a></h3>
-<dl class="simple">
-<dt>Code ::</dt><dd><p>srun -p a800-9000 python3 -c “import mindspore;mindspore.run_check()”</p>
-</dd>
-<dt>Output ::</dt><dd><p>MindSpore version: 1.6.2
-The result of multiplication calculation is correct, MindSpore has been installed successfully!</p>
-</dd>
-</dl>
+<p>Code</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">srun</span> <span class="o">-</span><span class="n">p</span> <span class="n">a800</span><span class="o">-</span><span class="mi">9000</span> <span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import mindspore;mindspore.run_check()&quot;</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>MindSpore version: 1.6.2
+The result of multiplication calculation is correct, MindSpore has been installed successfully!
+</pre></div>
+</div>
 </section>
 <section id="example-2">
 <h3>3.2 - Example 2<a class="headerlink" href="#example-2" title="Permalink to this heading">¶</a></h3>
-<dl>
-<dt>Code ::</dt><dd><p>import numpy as np
-import mindspore as ms
-import mindspore.ops as ops</p>
-<p>ms.set_context(device_target=”Ascend”)
-x = ms.Tensor(np.ones([1,3,3,4]).astype(np.float32))
-y = ms.Tensor(np.ones([1,3,3,4]).astype(np.float32))
-print(ops.add(x, y))</p>
-</dd>
-<dt>Output ::</dt><dd><p>[[[[2. 2. 2. 2.] [2. 2. 2. 2.] [2. 2. 2. 2.]] [[2. 2. 2. 2.] [2. 2. 2. 2.] [2. 2. 2. 2.]] [[2. 2. 2. 2.] [2. 2. 2. 2.] [2. 2. 2. 2.]]]]</p>
-</dd>
-</dl>
-<p>For more examples, check <a class="reference external" href="https://www.mindspore.cn/en">MindSpore</a> 1.6.2 Documentation</p>
-<p>_MindSpore: <a class="reference external" href="https://www.mindspore.cn/tutorials/en/r1.6/index.html">https://www.mindspore.cn/tutorials/en/r1.6/index.html</a></p>
+<p>Code</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">mindspore</span> <span class="k">as</span> <span class="nn">ms</span>
+<span class="kn">import</span> <span class="nn">mindspore.ops</span> <span class="k">as</span> <span class="nn">ops</span>
+
+<span class="n">ms</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="n">device_target</span><span class="o">=</span><span class="s2">&quot;Ascend&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ops</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[[[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]</span> <span class="p">[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]</span> <span class="p">[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]]</span> <span class="p">[[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]</span> <span class="p">[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]</span> <span class="p">[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]]</span> <span class="p">[[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]</span> <span class="p">[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]</span> <span class="p">[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]]]]</span>
+</pre></div>
+</div>
+<p>For more examples, check <a href="#id5"><span class="problematic" id="id6">MindSpore_</span></a> 1.6.2 Documentation</p>
 </section>
 </section>
 </section>
