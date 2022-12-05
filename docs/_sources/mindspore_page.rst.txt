@@ -73,9 +73,9 @@ Output ::
 	[[[[2. 2. 2. 2.] [2. 2. 2. 2.] [2. 2. 2. 2.]] [[2. 2. 2. 2.] [2. 2. 2. 2.] [2. 2. 2. 2.]] [[2. 2. 2. 2.] [2. 2. 2. 2.] [2. 2. 2. 2.]]]] 
 
 
-For more examples, check Mindspore1.6.2_ Documentation
+For more examples, check MindSpore_ 1.6.2 Documentation
 
-_Mindspore1.6.2: https://www.mindspore.cn/tutorials/en/r1.6/index.html
+_MindSpore: https://www.mindspore.cn/tutorials/en/r1.6/index.html
 
 
 
