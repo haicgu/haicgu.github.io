@@ -60,8 +60,12 @@ For any queries, please contact karthee dot Sivalingam at huawei.com
 
    access.rst
    usage.rst
-   user_guide_huawei_aifae.rst
    mindspore_page.rst
+   pytorch_guide.rst
+   tensorflow_guide.rst
+   atc_guide.rst
+   faq_and_links.rst
+
 
 Indices and tables
 ==================
