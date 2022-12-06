@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Ascend- AI Cluster Mindspore Environment Guide &#8212; HAICGU 0.1 documentation</title>
+    <title>Mindspore Environment Guide &#8212; HAICGU 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -37,12 +37,12 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="ascend-ai-cluster-mindspore-environment-guide">
-<h1>Ascend- AI Cluster Mindspore Environment Guide<a class="headerlink" href="#ascend-ai-cluster-mindspore-environment-guide" title="Permalink to this heading">¶</a></h1>
+  <section id="mindspore-environment-guide">
+<h1>Mindspore Environment Guide<a class="headerlink" href="#mindspore-environment-guide" title="Permalink to this heading">¶</a></h1>
 <section id="mindspore">
 <h2>1 - MindSpore<a class="headerlink" href="#mindspore" title="Permalink to this heading">¶</a></h2>
 <p>Through community cooperation, this open Al framework best matches with Ascend processors and supports multi-processor architectures for all scenarios. It brings data scientists, algorithm engineers, and developers with friendly development, efficient running, and flexible deployment, and boosts the development of the Al software and hardware ecosystem.</p>
-<p>Official Page: <a href="#id3"><span class="problematic" id="id4">Mindspore_</span></a></p>
+<p>Official Page: <a class="reference external" href="https://www.mindspore.cn/en">Mindspore</a></p>
 </section>
 <section id="mindspore-environment-module-load">
 <h2>2 - MindSpore Environment Module Load<a class="headerlink" href="#mindspore-environment-module-load" title="Permalink to this heading">¶</a></h2>
@@ -54,21 +54,6 @@
 </div>
 <p>Quick Check:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">srun</span> <span class="o">-</span><span class="n">p</span> <span class="n">a800</span><span class="o">-</span><span class="mi">9000</span> <span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;from mindspore import context;context.set_context(mode=context.GRAPH_MODE, device_target=&quot;Ascend&quot;)&#39;</span>
-</pre></div>
-</div>
-</section>
-<section id="pip-installation">
-<h3>2.2 - pip installation<a class="headerlink" href="#pip-installation" title="Permalink to this heading">¶</a></h3>
-<p>Command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">mindspore</span><span class="o">-</span><span class="n">ascend</span><span class="o">==</span><span class="mf">1.6.2</span>
-</pre></div>
-</div>
-<p>Quick Check:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">srun</span> <span class="o">-</span><span class="n">p</span> <span class="n">a800</span><span class="o">-</span><span class="mi">9000</span> <span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;from mindspore import context;context.set_context(mode=context.GRAPH_MODE, device_target=&quot;Ascend&quot;)&#39;</span>
-</pre></div>
-</div>
-<p>Note: Path export may require if the required environment variable not declared before:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export LD_LIBRARY_PATH=$ASCEND_OPP_PATH/op_impl/builtin/ai_core/tbe/op_tiling:$LD_LIBRARY_PATH
 </pre></div>
 </div>
 </section>
@@ -104,7 +89,7 @@ The result of multiplication calculation is correct, MindSpore has been installe
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[[[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]</span> <span class="p">[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]</span> <span class="p">[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]]</span> <span class="p">[[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]</span> <span class="p">[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]</span> <span class="p">[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]]</span> <span class="p">[[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]</span> <span class="p">[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]</span> <span class="p">[</span><span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]]]]</span>
 </pre></div>
 </div>
-<p>For more examples, check <a href="#id5"><span class="problematic" id="id6">MindSpore_</span></a> 1.6.2 Documentation</p>
+<p>For more examples, check <a class="reference external" href="https://www.mindspore.cn/tutorials/en/r1.6/index.html">MindSpore_Documentation</a> 1.6.2 Documentation</p>
 </section>
 </section>
 </section>
