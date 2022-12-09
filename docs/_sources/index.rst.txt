@@ -64,6 +64,7 @@ For any queries, please contact karthee dot Sivalingam at huawei.com
    pytorch_guide.rst
    tensorflow_guide.rst
    atc_guide.rst
+   hpc_challenge_benchmark.rst
    faq_and_links.rst
 
 
