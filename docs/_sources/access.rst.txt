@@ -29,6 +29,7 @@ You have to add some clauses to your ssh config::
     Host guoehi-dev
       HostName dev
       user yourusername
+      IdentityFile /path/to/your/private/ssh/key
       ProxyCommand ssh -q -W %h:%p guoehi
 
 Replacing ``yourusername`` and ``/path/to/your/private/ssh/key`` accordingly.

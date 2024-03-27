@@ -1,20 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>ATC Environment Setup &amp; User Guide &#8212; HAICGU 0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css?v=47acb022" />
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="HPC Challenge Benchmark" href="hpc_challenge_benchmark.html" />
@@ -44,16 +40,16 @@
           <div class="body" role="main">
             
   <section id="atc-environment-setup-user-guide">
-<h1>ATC Environment Setup &amp; User Guide<a class="headerlink" href="#atc-environment-setup-user-guide" title="Permalink to this heading">¶</a></h1>
+<h1>ATC Environment Setup &amp; User Guide<a class="headerlink" href="#atc-environment-setup-user-guide" title="Link to this heading">¶</a></h1>
 <section id="model-conversion-with-atc">
-<h2>1 - Model Conversion with ATC<a class="headerlink" href="#model-conversion-with-atc" title="Permalink to this heading">¶</a></h2>
+<h2>1 - Model Conversion with ATC<a class="headerlink" href="#model-conversion-with-atc" title="Link to this heading">¶</a></h2>
 <p>You can use <a class="reference external" href="https://support.huaweicloud.com/intl/en-us/ti-atc-A200_3000/ATC_Tool_Instructions.pdf">ATC</a> (Ascend Tensor Compiler) to convert network models trained on open source frameworks to offline models supported by Ascend AI Processor.</p>
 <section id="module-load">
-<h3>1.1 - Module Load<a class="headerlink" href="#module-load" title="Permalink to this heading">¶</a></h3>
+<h3>1.1 - Module Load<a class="headerlink" href="#module-load" title="Link to this heading">¶</a></h3>
 <p>ATC tool can work with all CANN modules and does not need to load different modules apart from them.</p>
 </section>
 <section id="model-conversion">
-<h3>1.2 - Model Conversion<a class="headerlink" href="#model-conversion" title="Permalink to this heading">¶</a></h3>
+<h3>1.2 - Model Conversion<a class="headerlink" href="#model-conversion" title="Link to this heading">¶</a></h3>
 <p>Conversion Script:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">cat</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span> <span class="o">&gt;</span> <span class="n">batchscript</span><span class="o">.</span><span class="n">sh</span> <span class="c1">#Declare execute path</span>
 <span class="c1">#!/bin/bash</span>
@@ -69,7 +65,7 @@
 </div>
 </section>
 <section id="example-usage">
-<h3>1.3 - Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this heading">¶</a></h3>
+<h3>1.3 - Example Usage<a class="headerlink" href="#example-usage" title="Link to this heading">¶</a></h3>
 <p>Environment Preperation:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">modelzoo</span><span class="o">-</span><span class="n">train</span><span class="o">-</span><span class="n">atc</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">cn</span><span class="o">-</span><span class="n">north</span><span class="o">-</span><span class="mf">4.</span><span class="n">myhuaweicloud</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">003</span><span class="n">_Atc_Models</span><span class="o">/</span><span class="n">AE</span><span class="o">/</span><span class="n">ATC</span><span class="o">%</span><span class="mi">20</span><span class="n">Model</span><span class="o">/</span><span class="n">Yolov3</span><span class="o">/</span><span class="n">aipp_nv12</span><span class="o">.</span><span class="n">cfg</span>
 <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">modelzoo</span><span class="o">-</span><span class="n">train</span><span class="o">-</span><span class="n">atc</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">cn</span><span class="o">-</span><span class="n">north</span><span class="o">-</span><span class="mf">4.</span><span class="n">myhuaweicloud</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">003</span><span class="n">_Atc_Models</span><span class="o">/</span><span class="n">AE</span><span class="o">/</span><span class="n">ATC</span><span class="o">%</span><span class="mi">20</span><span class="n">Model</span><span class="o">/</span><span class="n">Yolov3</span><span class="o">/</span><span class="n">yolov3</span><span class="o">.</span><span class="n">prototxt</span>
@@ -98,24 +94,24 @@
 </section>
 </section>
 <section id="inference">
-<h2>2 - Inference<a class="headerlink" href="#inference" title="Permalink to this heading">¶</a></h2>
+<h2>2 - Inference<a class="headerlink" href="#inference" title="Link to this heading">¶</a></h2>
 <section id="offline-inference">
-<h3>2.1 - Offline Inference<a class="headerlink" href="#offline-inference" title="Permalink to this heading">¶</a></h3>
+<h3>2.1 - Offline Inference<a class="headerlink" href="#offline-inference" title="Link to this heading">¶</a></h3>
 <p>Offline inference means, running an operation with model which translated with ATC on inference devices. All process can be executed by using ACL (Ascend Computing Language) supporting Python and C++ languages developed by Huawei.</p>
 </section>
 <section id="c-acl">
-<h3>2.1.1 - C++ (ACL)<a class="headerlink" href="#c-acl" title="Permalink to this heading">¶</a></h3>
+<h3>2.1.1 - C++ (ACL)<a class="headerlink" href="#c-acl" title="Link to this heading">¶</a></h3>
 <p>This <a class="reference external" href="https://www.hiascend.com/document/detail/en/canncommercial/504/inferapplicationdev/aclcppdevg/aclcppdevg_000000.html">ACL-document</a> provides guidance for developing deep neural network (DNN) apps based on existing models by using C language APIs provided by the Ascend Computing Language (AscendCL), for such purposes as target recognition and image classification.</p>
 </section>
 <section id="id2">
-<h3>2.1.3 -  Module Load<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<h3>2.1.3 -  Module Load<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <p>Environment preparation:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">GCC</span><span class="o">/</span><span class="mf">9.5.0</span> <span class="n">OpenMPI</span> <span class="n">CANN</span><span class="o">-</span><span class="n">Toolkit</span> <span class="n">OpenCV</span>
 </pre></div>
 </div>
 </section>
 <section id="model-inference">
-<h3>2.1.4 - Model Inference<a class="headerlink" href="#model-inference" title="Permalink to this heading">¶</a></h3>
+<h3>2.1.4 - Model Inference<a class="headerlink" href="#model-inference" title="Link to this heading">¶</a></h3>
 <p>Inference Script:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">cat</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span> <span class="o">&gt;</span> <span class="n">batchscript</span><span class="o">.</span><span class="n">sh</span>
 <span class="c1">#!/bin/bash</span>
@@ -133,7 +129,7 @@
 </div>
 </section>
 <section id="id3">
-<h3>2.1.4 - Example Usage<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<h3>2.1.4 - Example Usage<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Example Repo: <a class="reference external" href="https://gitee.com/ktuna/acl_multi_stream_inference">ACL</a></p></li>
 </ul>
@@ -174,14 +170,14 @@
 <p>This <a class="reference external" href="https://www.hiascend.com/document/detail/en/canncommercial/504/inferapplicationdev/aclpythondevg/aclpythondevg_0000.html">PyACL-document</a> provides guidance for developers to develop deep neural network (DNN) applications for purposes including target recognition and image classification based on existing models and Python APIs provided by Python Ascend Computing Language (pyACL).</p>
 </section>
 <section id="id4">
-<h3>2.1.6 - Module Load<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<h3>2.1.6 - Module Load<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <p>Environment Preperation:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">GCC</span><span class="o">/</span><span class="mf">9.5.0</span> <span class="n">OpenMPI</span> <span class="n">CANN</span><span class="o">-</span><span class="n">Toolkit</span>
 </pre></div>
 </div>
 </section>
 <section id="module-inference">
-<h3>2.1.7 - Module Inference<a class="headerlink" href="#module-inference" title="Permalink to this heading">¶</a></h3>
+<h3>2.1.7 - Module Inference<a class="headerlink" href="#module-inference" title="Link to this heading">¶</a></h3>
 <p>Inference Script:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">cat</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span> <span class="o">&gt;</span> <span class="n">batchscript</span><span class="o">.</span><span class="n">sh</span>
 <span class="c1">#!/bin/bash</span>
@@ -199,7 +195,7 @@
 </div>
 </section>
 <section id="id5">
-<h3>2.1.8 - Example Usage:<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<h3>2.1.8 - Example Usage:<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Example Repo: <a class="reference external" href="https://gitee.com/ascend/samples/tree/master/python/level2_simple_inference/2_object_detection/YOLOV3_coco_detection_picture">YOLOv3</a></p></li>
 </ul>
@@ -289,8 +285,8 @@ wget https://modelzoo-train-atc.obs.cn-north-4.myhuaweicloud.com/003_Atc_Models/
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, OEHI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2022, OEHI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
         </div>
         <div class="clearer"></div>

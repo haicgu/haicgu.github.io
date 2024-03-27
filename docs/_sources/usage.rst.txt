@@ -231,3 +231,17 @@ You can view the queued jobs by calling ``squeue``::
 For more information on how to use SLURM, please read the documentation_
 
 .. _documentation: https://slurm.schedmd.com/documentation.html
+
+Other software
+--------------
+
+ArmIE:
+^^^^^^
+
+To make the module available please use::
+
+    $ module use /software/tools/armie-22.0/modulefiles
+
+You can then load the module with::
+
+    $ module load armie

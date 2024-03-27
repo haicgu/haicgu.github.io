@@ -1,20 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Cluster usage &#8212; HAICGU 0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css?v=47acb022" />
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Mindspore Environment Guide" href="mindspore_page.html" />
@@ -44,15 +40,15 @@
           <div class="body" role="main">
             
   <section id="cluster-usage">
-<h1>Cluster usage<a class="headerlink" href="#cluster-usage" title="Permalink to this heading">¶</a></h1>
+<h1>Cluster usage<a class="headerlink" href="#cluster-usage" title="Link to this heading">¶</a></h1>
 <section id="software-stack-overview">
-<h2>Software stack overview<a class="headerlink" href="#software-stack-overview" title="Permalink to this heading">¶</a></h2>
+<h2>Software stack overview<a class="headerlink" href="#software-stack-overview" title="Link to this heading">¶</a></h2>
 <p>HAICGU uses a software stack based on <a class="reference external" href="https://easybuild.io/">EasyBuild</a>. The recipes for building software (EasyConfigs) can be found <a class="reference external" href="https://github.com/stepannassyr/sn-easyconfigs">here</a>.</p>
 <p>The built software is made accessible to users as modules with <a class="reference external" href="https://www.tacc.utexas.edu/research-development/tacc-projects/lmod">LMod</a>.</p>
 <p>Access to compute nodes is provided using the <a class="reference external" href="https://slurm.schedmd.com">SLURM workload manager</a>.</p>
 </section>
 <section id="using-modules">
-<h2>Using modules<a class="headerlink" href="#using-modules" title="Permalink to this heading">¶</a></h2>
+<h2>Using modules<a class="headerlink" href="#using-modules" title="Link to this heading">¶</a></h2>
 <p>When on the dev node (<code class="docutils literal notranslate"><span class="pre">guoehi-dev</span></code>), list the available modules by typing:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">avail</span>
 </pre></div>
@@ -143,7 +139,7 @@ $ module avail
 </div>
 </section>
 <section id="ai-software-stack">
-<h2>AI software stack<a class="headerlink" href="#ai-software-stack" title="Permalink to this heading">¶</a></h2>
+<h2>AI software stack<a class="headerlink" href="#ai-software-stack" title="Link to this heading">¶</a></h2>
 <p>The AI software stack has been partly integrated into the EasyBuild software stack, it is available with GCC 9.5.0. Load:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">GCC</span><span class="o">/</span><span class="mf">9.5.0</span> <span class="n">OpenMPI</span> <span class="n">CANN</span><span class="o">-</span><span class="n">Toolkit</span>
 </pre></div>
@@ -168,7 +164,7 @@ $ module avail
 </div>
 </section>
 <section id="using-slurm">
-<h2>Using SLURM<a class="headerlink" href="#using-slurm" title="Permalink to this heading">¶</a></h2>
+<h2>Using SLURM<a class="headerlink" href="#using-slurm" title="Link to this heading">¶</a></h2>
 <p>In order to run your application on the actual compute nodes, you will need to submit jobs using SLURM.</p>
 <p>List information about the available partitions and nodes with <code class="docutils literal notranslate"><span class="pre">sinfo</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sinfo
@@ -254,6 +250,20 @@ $ squeue
 </div>
 <p>For more information on how to use SLURM, please read the <a class="reference external" href="https://slurm.schedmd.com/documentation.html">documentation</a></p>
 </section>
+<section id="other-software">
+<h2>Other software<a class="headerlink" href="#other-software" title="Link to this heading">¶</a></h2>
+<section id="armie">
+<h3>ArmIE:<a class="headerlink" href="#armie" title="Link to this heading">¶</a></h3>
+<p>To make the module available please use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ module use /software/tools/armie-22.0/modulefiles
+</pre></div>
+</div>
+<p>You can then load the module with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ module load armie
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
 
@@ -273,6 +283,7 @@ $ squeue
 <li class="toctree-l2"><a class="reference internal" href="#using-modules">Using modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ai-software-stack">AI software stack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-slurm">Using SLURM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-software">Other software</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mindspore_page.html">Mindspore Environment Guide</a></li>
@@ -317,8 +328,8 @@ $ squeue
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, OEHI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2022, OEHI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
         </div>
         <div class="clearer"></div>

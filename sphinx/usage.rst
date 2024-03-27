@@ -236,6 +236,7 @@ Other software
 --------------
 
 ArmIE:
+^^^^^^
 
 To make the module available please use::
 

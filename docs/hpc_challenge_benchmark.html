@@ -1,20 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>HPC Challenge Benchmark &#8212; HAICGU 0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css?v=47acb022" />
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="FAQ’s and Useful Links for Ascend, ATC, Pytorch, Tensorflow" href="faq_and_links.html" />
@@ -44,12 +40,12 @@
           <div class="body" role="main">
             
   <section id="hpc-challenge-benchmark">
-<h1>HPC Challenge Benchmark<a class="headerlink" href="#hpc-challenge-benchmark" title="Permalink to this heading">¶</a></h1>
+<h1>HPC Challenge Benchmark<a class="headerlink" href="#hpc-challenge-benchmark" title="Link to this heading">¶</a></h1>
 <section id="linpack">
-<h2>1 - Linpack<a class="headerlink" href="#linpack" title="Permalink to this heading">¶</a></h2>
+<h2>1 - Linpack<a class="headerlink" href="#linpack" title="Link to this heading">¶</a></h2>
 <p>The Linpack benchmark is a measure of computer floating point execution efficiency and is the basis for the Top 500 supercomputer rankings.</p>
 <section id="usage">
-<h3>1.1 - Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h3>
+<h3>1.1 - Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h3>
 <p>Example Repo : <a class="reference external" href="https://netlib.org/benchmark/hpl/index.html">Linpack</a></p>
 <p>Example Script:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span> <span class="o">&gt;</span> <span class="n">batchScript</span><span class="o">.</span><span class="n">sh</span>
@@ -66,9 +62,9 @@
 </div>
 </section>
 <section id="results">
-<h3>1.2 - Results<a class="headerlink" href="#results" title="Permalink to this heading">¶</a></h3>
+<h3>1.2 - Results<a class="headerlink" href="#results" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default" id="id4">
-<caption><span class="caption-text">LINPACK-Test</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-text">LINPACK-Test</span><a class="headerlink" href="#id4" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 16.1%" />
 <col style="width: 16.1%" />
@@ -120,9 +116,9 @@
 </section>
 </section>
 <section id="stream-sustainable-memory-bandwidth-in-high-performance-computers">
-<h2>2 - STREAM: Sustainable Memory Bandwidth in High Performance Computers<a class="headerlink" href="#stream-sustainable-memory-bandwidth-in-high-performance-computers" title="Permalink to this heading">¶</a></h2>
+<h2>2 - STREAM: Sustainable Memory Bandwidth in High Performance Computers<a class="headerlink" href="#stream-sustainable-memory-bandwidth-in-high-performance-computers" title="Link to this heading">¶</a></h2>
 <section id="id2">
-<h3>2.1 - Usage<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<h3>2.1 - Usage<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <p>Example Repo : <a class="reference external" href="https://github.com/jeffhammond/STREAM">STREAM</a></p>
 <p>Test Script:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span> <span class="o">&gt;</span> <span class="n">batchscript</span><span class="o">.</span><span class="n">sh</span>
@@ -140,7 +136,7 @@
 </div>
 </section>
 <section id="id3">
-<h3>2.2 - Results<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<h3>2.2 - Results<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <p>Output:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>*Not optimised for performance*
 -------------------------------------------------------------
@@ -241,8 +237,8 @@ Solution Validates: avg error less than 1.000000e-13 on all three arrays
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, OEHI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2022, OEHI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
         </div>
         <div class="clearer"></div>

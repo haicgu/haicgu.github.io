@@ -1,20 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>FAQ’s and Useful Links for Ascend, ATC, Pytorch, Tensorflow &#8212; HAICGU 0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css?v=47acb022" />
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="HPC Challenge Benchmark" href="hpc_challenge_benchmark.html" /> 
@@ -41,15 +37,15 @@
           <div class="body" role="main">
             
   <section id="faq-s-and-useful-links-for-ascend-atc-pytorch-tensorflow">
-<h1>FAQ’s and Useful Links for Ascend, ATC, Pytorch, Tensorflow<a class="headerlink" href="#faq-s-and-useful-links-for-ascend-atc-pytorch-tensorflow" title="Permalink to this heading">¶</a></h1>
+<h1>FAQ’s and Useful Links for Ascend, ATC, Pytorch, Tensorflow<a class="headerlink" href="#faq-s-and-useful-links-for-ascend-atc-pytorch-tensorflow" title="Link to this heading">¶</a></h1>
 <section id="faq-s">
-<h2>1 - FAQ’s<a class="headerlink" href="#faq-s" title="Permalink to this heading">¶</a></h2>
+<h2>1 - FAQ’s<a class="headerlink" href="#faq-s" title="Link to this heading">¶</a></h2>
 <section id="no-module-named-torch-npu">
-<h3>1.1 -  No module named ‘torch_npu’<a class="headerlink" href="#no-module-named-torch-npu" title="Permalink to this heading">¶</a></h3>
+<h3>1.1 -  No module named ‘torch_npu’<a class="headerlink" href="#no-module-named-torch-npu" title="Link to this heading">¶</a></h3>
 <p>If pytorch is installed correctly, The error can be fixed by removing the```import torch_npu``` and writing <code class="docutils literal notranslate"><span class="pre">`torch.npu()`</span></code> instead of <code class="docutils literal notranslate"><span class="pre">`torch_npu.npu()`</span></code> .</p>
 </section>
 <section id="val-folder-path-error-when-giving-data-flag">
-<h3>1.2 - Val folder path error when giving data flag<a class="headerlink" href="#val-folder-path-error-when-giving-data-flag" title="Permalink to this heading">¶</a></h3>
+<h3>1.2 - Val folder path error when giving data flag<a class="headerlink" href="#val-folder-path-error-when-giving-data-flag" title="Link to this heading">¶</a></h3>
 <p>While creating the resnet50_infer_for_pytorch.py file, you need to edit the data path part.
 If you comment out the line <code class="docutils literal notranslate"><span class="pre">`valdir</span> <span class="pre">=</span> <span class="pre">os.path.join(args.data,</span> <span class="pre">'val')`</span></code> and write <code class="docutils literal notranslate"><span class="pre">`args.data`</span></code> instead of the <code class="docutils literal notranslate"><span class="pre">`valdir`</span></code> assigned to the <code class="docutils literal notranslate"><span class="pre">`val_loader`</span></code> variable, the problem will go away.</p>
 <p>Output:</p>
@@ -74,28 +70,28 @@ If you comment out the line <code class="docutils literal notranslate"><span cla
 </div>
 </section>
 <section id="how-can-i-convert-my-model">
-<h3>1.3 - How can I convert my model?<a class="headerlink" href="#how-can-i-convert-my-model" title="Permalink to this heading">¶</a></h3>
+<h3>1.3 - How can I convert my model?<a class="headerlink" href="#how-can-i-convert-my-model" title="Link to this heading">¶</a></h3>
 <p>You can use ATC to convert your trained model to om (offline model). For more information click <a class="reference external" href="https://support.huawei.com/enterprise/en/doc/EDOC1100192457/2a40d134/atc-tool">here</a>.</p>
 </section>
 <section id="how-can-i-see-the-status-of-npu-s">
-<h3>1.4 - How can I see the status of NPU’s?<a class="headerlink" href="#how-can-i-see-the-status-of-npu-s" title="Permalink to this heading">¶</a></h3>
+<h3>1.4 - How can I see the status of NPU’s?<a class="headerlink" href="#how-can-i-see-the-status-of-npu-s" title="Link to this heading">¶</a></h3>
 <p>You can see by writing <code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">-p</span> <span class="pre">a800-9000</span> <span class="pre">npu-smi</span> <span class="pre">info</span></code> .</p>
 </section>
 <section id="i-am-trying-to-train-model-from-ascend-modelzoo-but-i-can-t-find-the-example-data">
-<h3>1.5 - I am trying to train model from Ascend-Modelzoo but I can’t find the example data.<a class="headerlink" href="#i-am-trying-to-train-model-from-ascend-modelzoo-but-i-can-t-find-the-example-data" title="Permalink to this heading">¶</a></h3>
+<h3>1.5 - I am trying to train model from Ascend-Modelzoo but I can’t find the example data.<a class="headerlink" href="#i-am-trying-to-train-model-from-ascend-modelzoo-but-i-can-t-find-the-example-data" title="Link to this heading">¶</a></h3>
 <p>Most of the models don’t have their own built in data. So that you should provide data to train your model. But some models requires different formats (e.g. .npz, .tfrecords etc.)</p>
 </section>
 <section id="i-can-t-run-my-tensorflow-script">
-<h3>1.6 - I can’t run my Tensorflow Script!<a class="headerlink" href="#i-can-t-run-my-tensorflow-script" title="Permalink to this heading">¶</a></h3>
+<h3>1.6 - I can’t run my Tensorflow Script!<a class="headerlink" href="#i-can-t-run-my-tensorflow-script" title="Link to this heading">¶</a></h3>
 <p>Be careful. There are two different TF module to use. One supports 1.15 and other supports 2.4. So that try to change between <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">GCC/9.5.0</span> <span class="pre">OpenMPI</span> <span class="pre">TensorFlow-CANN/2.4.1</span></code> and <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">GCC/9.5.0</span> <span class="pre">OpenMPI</span> <span class="pre">TensorFlow-CANN/1.15.0</span></code></p>
 </section>
 <section id="my-module-can-not-find-opencv-or-any-other-package">
-<h3>1.7 - My module can not find OpenCV or any other package!<a class="headerlink" href="#my-module-can-not-find-opencv-or-any-other-package" title="Permalink to this heading">¶</a></h3>
+<h3>1.7 - My module can not find OpenCV or any other package!<a class="headerlink" href="#my-module-can-not-find-opencv-or-any-other-package" title="Link to this heading">¶</a></h3>
 <p>Add OpenCV or anything you want at the end of your module command like <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">GCC/9.5.0</span> <span class="pre">OpenMPI</span> <span class="pre">CANN-Toolkit</span> <span class="pre">OpenCV</span></code></p>
 </section>
 </section>
 <section id="useful-links">
-<h2>2 - Useful Links<a class="headerlink" href="#useful-links" title="Permalink to this heading">¶</a></h2>
+<h2>2 - Useful Links<a class="headerlink" href="#useful-links" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Ascend official website (includes all information about ascend platform)</strong></p></li>
 </ul>
@@ -188,8 +184,8 @@ If you comment out the line <code class="docutils literal notranslate"><span cla
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, OEHI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2022, OEHI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
         </div>
         <div class="clearer"></div>
