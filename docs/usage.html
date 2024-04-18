@@ -7,9 +7,9 @@
 
     <title>Cluster usage &#8212; HAICGU 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="_static/agogo.css?v=47acb022" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css?v=8513425a" />
     <script src="_static/documentation_options.js?v=2709fde1"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -169,14 +169,18 @@ $ module avail
 <p>List information about the available partitions and nodes with <code class="docutils literal notranslate"><span class="pre">sinfo</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sinfo
 PARTITION       AVAIL  TIMELIMIT  NODES  STATE NODELIST
-arm-kunpeng920*    up   infinite     28   idle cn[01-28]
+cn-ib*             up   infinite     10   idle cn[09-18]
+cn-eth             up   infinite     10   idle cn[19-28]
+cn-kube            up   infinite     10   idle cn[1-8]
 a800-9000          up   infinite      1   idle ml01
 a800-3000          up   infinite      1   idle ml02
 </pre></div>
 </div>
 <p>As you can see, currently there are 3 partitions available:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">arm-kunpeng920</span></code>, currently consisting of 28 standard compute nodes <code class="docutils literal notranslate"><span class="pre">cn[01-28]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cn-ib</span></code>, currently consisting of 10 standard compute nodes <code class="docutils literal notranslate"><span class="pre">cn[09-18]</span></code> that uses Infiniband for network</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cn-eth</span></code>, currently consisting of 10 standard compute nodes <code class="docutils literal notranslate"><span class="pre">cn[19-28]</span></code> that uses Ethernet (ROCE) for network</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cn-kube</span></code>, currently consisting of 8 standard compute nodes <code class="docutils literal notranslate"><span class="pre">cn[1-8]</span></code> for Kubernetes. DOnt use for batch jobs</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">a800-9000</span></code>, currently consisting of 1 Atlas 800 Training Server (Model: 9000) node <code class="docutils literal notranslate"><span class="pre">ml01</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">a800-3000</span></code>, currently consisting of 1 Atlas 800 Inference Server (Model: 3000) node <code class="docutils literal notranslate"><span class="pre">ml02</span></code></p></li>
 </ul>
@@ -294,13 +298,13 @@ $ squeue
 <li class="toctree-l1"><a class="reference internal" href="faq_and_links.html">FAQ’s and Useful Links for Ascend, ATC, Pytorch, Tensorflow</a></li>
 </ul>
 
-          <div role="search">
+          <search role="search">
             <h3 style="margin-top: 1.5em;">Search</h3>
             <form class="search" action="search.html" method="get">
                 <input type="text" name="q" />
                 <input type="submit" value="Go" />
             </form>
-          </div>
+          </search>
 
         </div>
         <div class="clearer"></div>
@@ -310,7 +314,7 @@ $ squeue
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <div role="navigation" aria-label="related navigaton">
+          <div role="navigation" aria-label="related navigation">
             <a href="access.html" title="Access to HAICGU"
               >previous</a> |
             <a href="mindspore_page.html" title="Mindspore Environment Guide"
@@ -329,7 +333,7 @@ $ squeue
           
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, OEHI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.6.
     </div>
         </div>
         <div class="clearer"></div>
