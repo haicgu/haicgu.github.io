@@ -149,13 +149,17 @@ List information about the available partitions and nodes with ``sinfo``::
 
     $ sinfo
     PARTITION       AVAIL  TIMELIMIT  NODES  STATE NODELIST
-    arm-kunpeng920*    up   infinite     28   idle cn[01-28]
+    cn-ib*             up   infinite     10   idle cn[09-18]
+    cn-eth             up   infinite     10   idle cn[19-28]
+    cn-kube            up   infinite     10   idle cn[1-8]
     a800-9000          up   infinite      1   idle ml01
     a800-3000          up   infinite      1   idle ml02
 
 As you can see, currently there are 3 partitions available: 
 
-- ``arm-kunpeng920``, currently consisting of 28 standard compute nodes ``cn[01-28]``
+- ``cn-ib``, currently consisting of 10 standard compute nodes ``cn[09-18]`` that uses Infiniband for network
+- ``cn-eth``, currently consisting of 10 standard compute nodes ``cn[19-28]`` that uses Ethernet (ROCE) for network
+- ``cn-kube``, currently consisting of 8 standard compute nodes ``cn[1-8]`` for Kubernetes. DOnt use for batch jobs
 - ``a800-9000``, currently consisting of 1 Atlas 800 Training Server (Model: 9000) node ``ml01``
 - ``a800-3000``, currently consisting of 1 Atlas 800 Inference Server (Model: 3000) node ``ml02``
 

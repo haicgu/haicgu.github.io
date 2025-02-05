@@ -15,7 +15,7 @@ The following listshows the currently installed nodes and servers of the cluster
 #. 28x Standard Compute Node – TaiShan 200 (Model 2280)
 
    * 2 x Kunpeng 920 processor (ARMv8 AArch64; 64 cores; 2.6GHz; 180W)
-   * 28GB main memory (16x 8GB, one DIMM per channel)
+   * 128GB main memory (16x 8GB, one DIMM per channel)
    * 1x 100Gbit/s EDR Infiniband HCA
    
 
@@ -60,6 +60,7 @@ For any queries, please contact karthee dot Sivalingam at huawei.com
 
    access.rst
    usage.rst
+   filesystems.rst
    mindspore_page.rst
    pytorch_guide.rst
    tensorflow_guide.rst

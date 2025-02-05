@@ -5,20 +5,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; HAICGU 0.1 documentation</title>
+    <title>Filesystems on HAICGU &#8212; HAICGU 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/agogo.css?v=08520df9" />
     <script src="_static/documentation_options.js?v=2709fde1"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mindspore Environment Guide" href="mindspore_page.html" />
+    <link rel="prev" title="Cluster usage" href="usage.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
           href="index.html">HAICGU 0.1 documentation</a></div>
         <div class="rel" role="navigation" aria-label="Related">
+          <a href="usage.html" title="Cluster usage"
+             accesskey="P">previous</a> |
+          <a href="mindspore_page.html" title="Mindspore Environment Guide"
+             accesskey="N">next</a> |
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a>
         </div>
@@ -33,7 +39,93 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p>Karthee SivalingamKartheeSivalingam?{&amp;^g?mentp?J??mponen?{%^?`?J??? J</p>
+  <section id="filesystems-on-haicgu">
+<h1>Filesystems on HAICGU<a class="headerlink" href="#filesystems-on-haicgu" title="Link to this heading">¶</a></h1>
+<p>There are multiple filesystems accessible to users on HAICGU</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Filesystems on HAICGU</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 36.4%" />
+<col style="width: 9.1%" />
+<col style="width: 18.2%" />
+<col style="width: 9.1%" />
+<col style="width: 18.2%" />
+<col style="width: 9.1%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Mount point</p></th>
+<th class="head"><p>Backend</p></th>
+<th class="head"><p>Available</p></th>
+<th class="head"><p>Capacity</p></th>
+<th class="head"><p>Network</p></th>
+<th class="head"><p>Performance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/home</p></td>
+<td><p>guoehi (NFS)</p></td>
+<td><p>all</p></td>
+<td><p>8TB</p></td>
+<td><p>1Gb ETH (ml01, ml02, dev, cn{01-09, 19-28}); 100Gb IB (cn{10-18})</p></td>
+<td><p>TODO</p></td>
+</tr>
+<tr class="row-odd"><td><p>/mnt/lustre-storage</p></td>
+<td><p>guoehi-io0{1,2} (Lustre)</p></td>
+<td><p>all - guoehi</p></td>
+<td><p>36TB</p></td>
+<td><p>Network: cn{10-18} 1Gbit ; ml01, ml02, dev, cn{01-09, 19-28} 100Gbit</p></td>
+<td><p>TODO</p></td>
+</tr>
+<tr class="row-even"><td><p>/mnt/OSP-data1</p></td>
+<td><p><a class="reference external" href="https://carrier.huawei.com/en/products/it-new/oceanstorpacific/oceanstor-pacific-9950">OSP 9950</a> (NFS)</p></td>
+<td><p>dev, cn{01-09, 19-28}</p></td>
+<td><p>36TB</p></td>
+<td><p>100 Gb ETH</p></td>
+<td><p>TODO</p></td>
+</tr>
+<tr class="row-odd"><td><p>/mnt/dev-lscratch</p></td>
+<td><p>2xMZ7KH960HAJR (ZFS)</p></td>
+<td><p>dev</p></td>
+<td><p>1.8TB</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>TODO</p></td>
+</tr>
+<tr class="row-even"><td><p>/mnt/ml01-sscratch</p></td>
+<td><p>2xMZ7KH960HAJR (ZFS)</p></td>
+<td><p>ml01</p></td>
+<td><p>1.8TB</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>TODO</p></td>
+</tr>
+<tr class="row-odd"><td><p>/mnt/ml01-nscratch</p></td>
+<td><p>4xMZWLL3T2HAJQ-00005 (ZFS)</p></td>
+<td><p>ml01</p></td>
+<td><p>12 TB</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>TODO</p></td>
+</tr>
+<tr class="row-even"><td><p>/mnt/ml02-sscratch</p></td>
+<td><p>6xMZ7KH960HAJR (ZFS)</p></td>
+<td><p>ml01</p></td>
+<td><p>5.2TB</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>TODO</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 
 
             <div class="clearer"></div>
@@ -45,10 +137,10 @@
           
           <h3>Table of Contents</h3>
           <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="access.html">Access to HAICGU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Cluster usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="filesystems.html">Filesystems on HAICGU</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Filesystems on HAICGU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mindspore_page.html">Mindspore Environment Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pytorch_guide.html">Pytorch Environment Setup &amp; User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tensorflow_guide.html">Tesnorflow Environment Setup &amp; User Guide</a></li>
@@ -74,12 +166,16 @@
       <div class="footer">
         <div class="left">
           <div role="navigation" aria-label="Related">
+            <a href="usage.html" title="Cluster usage"
+              >previous</a> |
+            <a href="mindspore_page.html" title="Mindspore Environment Guide"
+              >next</a> |
             <a href="genindex.html" title="General Index"
               >index</a>
           </div>
           <div role="note" aria-label="source link">
               <br/>
-              <a href="_sources/~$index.rst.txt"
+              <a href="_sources/filesystems.rst.txt"
                 rel="nofollow">Show Source</a>
           </div>
         </div>

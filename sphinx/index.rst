@@ -60,6 +60,7 @@ For any queries, please contact karthee dot Sivalingam at huawei.com
 
    access.rst
    usage.rst
+   filesystems.rst
    mindspore_page.rst
    pytorch_guide.rst
    tensorflow_guide.rst
