@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Kubernetes &#8212; HAICGU 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css?v=08520df9" />
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="FAQ’s and Useful Links for Ascend, ATC, Pytorch, Tensorflow" href="faq_and_links.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">HAICGU 0.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="Related">
+          <a href="faq_and_links.html" title="FAQ’s and Useful Links for Ascend, ATC, Pytorch, Tensorflow"
+             accesskey="P">previous</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="kubernetes">
+<h1>Kubernetes<a class="headerlink" href="#kubernetes" title="Link to this heading">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>Kubernetes - Kubernetes is a powerful open-source system for managing containerized applications in a cloud environment.</p>
+<p>KubeEdge - An open source system for containerized application orchestration for resources in Cloud and Edge. It is built upon Kubernetes and extends native containerized application orchestration and device management to hosts at the edge.</p>
+<p>SEDNA - An open source edge-cloud synergy AI project targeting optimisation and utilization of resources across Cloud-Edge for AI training workloads.</p>
+<p>Volcano - an open source system built on top of Kubernetes to support high performance batch &amp; elastic workloads. Volcano supports popular computing frameworks such as Spark, TensorFlow, PyTorch, Flink, Argo, MindSpore.</p>
+<p>The Kubernetes Cluster (HAICGU: Huawei AI and Computing at Goethe University) that is being created at this stage is as follows.</p>
+</div></blockquote>
+<a class="reference internal image-reference" href="_static/images/image2.jpeg"><img alt="_static/images/image2.jpeg" src="_static/images/image2.jpeg" style="width: 600px;" />
+</a>
+</section>
+<section id="access">
+<h2>Access<a class="headerlink" href="#access" title="Link to this heading">¶</a></h2>
+<p>To access Kubernetes and other installed componenets</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">guoehi</span><span class="o">-</span><span class="n">dev</span>
+<span class="n">ssh</span> <span class="n">cn05</span>
+<span class="n">export</span> <span class="n">KUBECONFIG</span><span class="o">=/</span><span class="n">etc</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">admin</span><span class="o">.</span><span class="n">conf</span>
+<span class="n">which</span> <span class="n">kubectl</span>
+<span class="n">kubectl</span> <span class="n">cluster</span><span class="o">-</span><span class="n">info</span>
+</pre></div>
+</div>
+<p>To Access the kubernetes nodes, namespaces and Pods</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kubectl</span> <span class="n">get</span> <span class="n">no</span>
+<span class="n">kubectl</span> <span class="n">get</span> <span class="n">ns</span>
+<span class="n">kubectl</span> <span class="n">get</span> <span class="n">po</span> <span class="o">-</span><span class="n">A</span>
+</pre></div>
+</div>
+</section>
+<section id="kubeedge">
+<h2>KubeEdge<a class="headerlink" href="#kubeedge" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>KubeEdge is an open source framework for edge computing built on Kubernetes that is an incubation-level CNCF project. KubeEdge helps developers deploy and manage containerized applications in the cloud and on the edge using the same unified platform. KubeEdge handles networking, deployment and data synchronization between edge and cloud infrastructure.</p>
+<ul>
+<li><p>Prerequisites</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Kubernetes</p></li>
+</ul>
+<p>KubeEdge is designed to extend Kubernetes from cloud to edge, and while it’s built upon Kubernetes’ architecture, it’s important to note that having an existing Kubernetes control plane is essential for deploying KubeEdge. This means that to use KubeEdge effectively, one must have a Kubernetes control plane in place.</p>
+<ul class="simple">
+<li><p>Container Runtime</p></li>
+</ul>
+<p>You need to install a container runtime into each edge node in the cluster so that the edge engine EdgeCore can be installed successfully and edge Pods can run there.</p>
+</div></blockquote>
+</li>
+<li><p>Installing KubeEdge with Keadm</p>
+<blockquote>
+<div><p>Use the GitHub release to download the keadm binary. KubeEdge GitHub officially holds three architecture releases: amd64, arm, and arm64. Please download the correct package according to your platform and desired version.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">kubeedge</span><span class="o">/</span><span class="n">kubeedge</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">v1</span><span class="mf">.17.0</span><span class="o">/</span><span class="n">keadm</span><span class="o">-</span><span class="n">v1</span><span class="mf">.17.0</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">amd64</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">tar</span> <span class="o">-</span><span class="n">zxvf</span> <span class="n">keadm</span><span class="o">-</span><span class="n">v1</span><span class="mf">.17.0</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">amd64</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">cp</span> <span class="n">keadm</span><span class="o">-</span><span class="n">v1</span><span class="mf">.17.0</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">amd64</span><span class="o">/</span><span class="n">keadm</span><span class="o">/</span><span class="n">keadm</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">keadm</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Setup Cloud Side (KubeEdge Master Node)</p></li>
+</ul>
+<p>keadm init provides a solution for integrating the CloudCore Helm chart. CloudCore will be deployed to cloud nodes in container mode.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">keadm</span> <span class="n">init</span> <span class="o">--</span><span class="n">advertise</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="s2">&quot;THE-EXPOSED-IP&quot;</span> <span class="o">--</span><span class="n">kubeedge</span><span class="o">-</span><span class="n">version</span><span class="o">=</span><span class="n">v1</span><span class="mf">.17.0</span> <span class="o">--</span><span class="n">kube</span><span class="o">-</span><span class="n">config</span><span class="o">=/</span><span class="n">root</span><span class="o">/.</span><span class="n">kube</span><span class="o">/</span><span class="n">config</span>
+<span class="n">Output</span><span class="p">:</span>
+<span class="n">Kubernetes</span> <span class="n">version</span> <span class="n">verification</span> <span class="n">passed</span><span class="p">,</span> <span class="n">KubeEdge</span> <span class="n">installation</span> <span class="n">will</span> <span class="n">start</span><span class="o">...</span>
+<span class="n">CLOUDCORE</span> <span class="n">started</span>
+<span class="o">=========</span><span class="n">CHART</span> <span class="n">DETAILS</span><span class="o">=======</span>
+<span class="n">NAME</span><span class="p">:</span> <span class="n">cloudcore</span>
+<span class="n">LAST</span> <span class="n">DEPLOYED</span><span class="p">:</span> <span class="n">Wed</span> <span class="n">Oct</span> <span class="mi">26</span> <span class="mi">11</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">04</span> <span class="mi">2022</span>
+<span class="n">NAMESPACE</span><span class="p">:</span> <span class="n">kubeedge</span>
+<span class="n">STATUS</span><span class="p">:</span> <span class="n">deployed</span>
+<span class="n">REVISION</span><span class="p">:</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Setup Edge Side (KubeEdge Worker Node)</p></li>
+</ul>
+<p>Run keadm gettoken on the cloud side to retrieve the token, which will be used when joining edge nodes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># keadm gettoken</span>
+<span class="mi">27</span><span class="n">a37ef16159f7d3be8fae95d588b79b3adaaf92727b7</span>
+</pre></div>
+</div>
+<p>keadm join installs EdgeCore. It also provides a flag to set a specific version. It pulls the image kubeedge/installation-package from Docker Hub, copies the edgecore binary from container to the hostpath, and then starts edgecore as a system service.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">keadm</span> <span class="n">join</span> <span class="o">--</span><span class="n">cloudcore</span><span class="o">-</span><span class="n">ipport</span><span class="o">=</span><span class="s2">&quot;THE-EXPOSED-IP&quot;</span><span class="p">:</span><span class="mi">10000</span> <span class="o">--</span><span class="n">token</span><span class="o">=</span><span class="mi">27</span><span class="n">a37ef16159f7d3be8fae95d588b79b3adaaf92727b7</span> <span class="o">--</span><span class="n">kubeedge</span><span class="o">-</span><span class="n">version</span><span class="o">=</span><span class="n">v1</span><span class="mf">.12.1</span>
+</pre></div>
+</div>
+<p>You can run kubectl get all -n kubeedge to ensure that CloudCore start successfully, as shown below.</p>
+<a class="reference internal image-reference" href="_static/images/image3.png"><img alt="_static/images/image3.png" src="_static/images/image3.png" style="width: 600px;" />
+</a>
+<ul>
+<li><p>Installing KubeEdge with Ansible</p>
+<blockquote>
+<div><p>Two playbooks have been created for KubeEdge to be installed on the cloud and edge side via ansible playbooks. In decie-spray repository, the playbooks are present. You just need to run:</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">msevinc</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">git</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="n">inventory</span><span class="o">/</span><span class="n">decice</span><span class="o">-</span><span class="n">mehmet</span><span class="o">/</span><span class="n">hosts</span><span class="o">.</span><span class="n">yaml</span> <span class="o">--</span><span class="n">become</span> <span class="o">--</span><span class="n">become</span><span class="o">-</span><span class="n">user</span><span class="o">=</span><span class="n">root</span> <span class="o">-</span><span class="n">u</span> <span class="n">msevinc</span> <span class="n">playbooks</span><span class="o">/</span><span class="n">kubeedge</span><span class="o">-</span><span class="n">cloudcore</span><span class="o">-</span><span class="n">install</span><span class="o">.</span><span class="n">yaml</span>
+<span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;192.168.23.13,&quot;</span> <span class="o">--</span><span class="n">become</span> <span class="o">--</span><span class="n">become</span><span class="o">-</span><span class="n">user</span><span class="o">=</span><span class="n">root</span> <span class="o">-</span><span class="n">u</span> <span class="n">msevinc</span> <span class="n">playbooks</span><span class="o">/</span><span class="n">kubeedge</span><span class="o">-</span><span class="n">edgecore</span><span class="o">-</span><span class="n">install</span><span class="o">.</span><span class="n">yaml</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="sedna">
+<h2>Sedna<a class="headerlink" href="#sedna" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>Deploying machine learning models is another common use case for edge computing. By moving your model to an edge device, you not only reduce bandwidth costs and latency but also gain the advantage of better privacy and security because data isn’t leaving the device or edge location to be analyzed.</p>
+<p>KubeEdge provides its own toolkit called Sedna to make deploying models from popular machine learning frameworks like Tensorflow and Pytorch easier.</p>
+<p>KubeEdge provides the connection between the edge nodes and the cloud. Sedna enables running AI models on these edge nodes.</p>
+<p>Sedna’s edge-cloud synergy is implemented based on the following capabilities provided by KubeEdge:</p>
+<p>Unified orchestration of across edge-cloud applications.</p>
+<p>Router: across edge-cloud message channel in management plane.</p>
+<p>EdgeMesh: across edge-cloud microservice discovery and traffic governance in data plane.</p>
+<ul>
+<li><p>Prerequisites</p>
+<blockquote>
+<div><p>Kubectl with right kubeconfig</p>
+<p>Kubernetes 1.16+ cluster running</p>
+<p>KubeEdge v1.8+ along with EdgeMesh running</p>
+<a class="reference internal image-reference" href="_static/images/image4.png"><img alt="_static/images/image4.png" src="_static/images/image4.png" style="width: 600px;" />
+</a>
+<p>EdgeMesh, as the data plane component of the KubeEdge cluster, provides simple service discovery and traffic proxy functions for applications, thereby shielding the complex network structure in edge scenarios.</p>
+</div></blockquote>
+</li>
+<li><p>Installing EdgeMesh with Helm</p>
+<blockquote>
+<div><p>Make sure you have installed Helm 3.
+Remove the taint of the K8s master nodes</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ kubectl taint nodes --all node-role.kubernetes.io/master-
+</pre></div>
+</div>
+<p>Add filter labels to Kubernetes API services</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ kubectl label services kubernetes service.edgemesh.kubeedge.io/service-proxy-name=&quot;&quot;
+</pre></div>
+</div>
+<p>To generate a PSK cipher, you can use the following command to generate a random string to use as the PSK cipher, or you can customize a string to use as the PSK cipher.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ openssl rand -base64 32
+&lt;your psk string&gt;
+helm install edgemesh --namespace kubeedge \
+--set agent.psk=&lt;your psk string&gt; \
+--set agent.relayNodes[0].nodeName=&lt;your node name&gt;,agent.relayNodes[0].advertiseAddress=&lt;your advertise address list&gt; \
+https://raw.githubusercontent.com/kubeedge/edgemesh/main/build/helm/edgemesh.tgz
+</pre></div>
+</div>
+<ul>
+<li><p>Installing Sedna</p>
+<blockquote>
+<div><p>Currently GM (Global Manager) is deployed as a deployment, and LC (Local Controller) is deployed as a daemonset.
+Run the one liner:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">kubeedge</span><span class="o">/</span><span class="n">sedna</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">installation</span><span class="o">/</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span> <span class="n">SEDNA_ACTION</span><span class="o">=</span><span class="n">create</span> <span class="n">bash</span> <span class="o">-</span>
+</pre></div>
+</div>
+<p>Check the GM status:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kubectl</span> <span class="n">get</span> <span class="n">deploy</span> <span class="o">-</span><span class="n">n</span> <span class="n">sedna</span> <span class="n">gm</span>
+</pre></div>
+</div>
+<p>Check the LC status:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kubectl</span> <span class="n">get</span> <span class="n">ds</span> <span class="n">lc</span> <span class="o">-</span><span class="n">n</span> <span class="n">sedna</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>GlobalManager:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Unified edge-cloud synergy AI task management</p></li>
+<li><p>Cross edge-cloud synergy management and collaboration</p></li>
+<li><p>Central Configuration Management</p></li>
+</ul>
+</div></blockquote>
+<p>LocalController</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Local process control of edge-cloud synergy AI tasks</p></li>
+<li><p>Local general management: model, dataset, and status synchronization</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="volcano">
+<h2>Volcano<a class="headerlink" href="#volcano" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>Volcano is a cloud native system for high-performance workloads. It is a container batch scheduling project built on Kubernetes. It provides a suite of mechanisms that are commonly required by many classes of batch &amp; elastic workload including: machine learning/deep learning, bioinformatics/genomics and other “big data” applications. These types of applications typically run on generalized domain frameworks like TensorFlow, Spark, Ray, PyTorch, MPI, etc, which Volcano integrates with.</p>
+<a class="reference internal image-reference" href="_static/images/image5.png"><img alt="_static/images/image5.png" src="_static/images/image5.png" style="width: 600px;" />
+</a>
+<p>Volcano consists of scheduler / controllermanager / admission / vcctl.</p>
+<a class="reference internal image-reference" href="_static/images/image6.png"><img alt="_static/images/image6.png" src="_static/images/image6.png" style="width: 600px;" />
+</a>
+<ul>
+<li><p>Prerequisites</p>
+<blockquote>
+<div><p>Kubernetes 1.12+ with CRD support.</p>
+</div></blockquote>
+</li>
+<li><p>Installing Volcano with YAML Files</p>
+<blockquote>
+<div><p>Install Volcano on an existing Kubernetes cluster. This way is both available for x86_64 and arm64 architecture.</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span>
+</pre></div>
+</div>
+<p>Verify status of Volcano components.</p>
+<a class="reference internal image-reference" href="_static/images/image7.png"><img alt="_static/images/image7.png" src="_static/images/image7.png" style="width: 600px;" />
+</a>
+<ul>
+<li><p>Installing Volcano with Ansible</p>
+<blockquote>
+<div><p>One playbook has been created for Volcano to be installed on the HIACGU Kubernetes Cluster. The playbook is in the decie-spray repository. You just need to run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">msevinc</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">git</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="n">inventory</span><span class="o">/</span><span class="n">decice</span><span class="o">-</span><span class="n">mehmet</span><span class="o">/</span><span class="n">hosts</span><span class="o">.</span><span class="n">yaml</span> <span class="o">--</span><span class="n">become</span> <span class="o">--</span><span class="n">become</span><span class="o">-</span><span class="n">user</span><span class="o">=</span><span class="n">root</span> <span class="o">-</span><span class="n">u</span> <span class="n">msevinc</span> <span class="n">playbooks</span><span class="o">/</span><span class="n">volcano</span><span class="o">-</span><span class="n">install</span><span class="o">.</span><span class="n">yaml</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="access.html">Access to HAICGU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Cluster usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filesystems.html">Filesystems on HAICGU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mindspore_page.html">Mindspore Environment Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_guide.html">Pytorch Environment Setup &amp; User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tensorflow_guide.html">Tesnorflow Environment Setup &amp; User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="atc_guide.html">ATC Environment Setup &amp; User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpc_challenge_benchmark.html">HPC Challenge Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq_and_links.html">FAQ’s and Useful Links for Ascend, ATC, Pytorch, Tensorflow</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kubernetes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#access">Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kubeedge">KubeEdge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sedna">Sedna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#volcano">Volcano</a></li>
+</ul>
+</li>
+</ul>
+
+          <search role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </search>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="Related">
+            <a href="faq_and_links.html" title="FAQ’s and Useful Links for Ascend, ATC, Pytorch, Tensorflow"
+              >previous</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/kubernetes.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022, OEHI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
