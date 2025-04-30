@@ -267,6 +267,25 @@ $ squeue
 </pre></div>
 </div>
 </section>
+<section id="ollama">
+<h3>Ollama:<a class="headerlink" href="#ollama" title="Link to this heading">¶</a></h3>
+<p>Ollama is installed as an Easybuild module, to load it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ module load GCC ollama
+</pre></div>
+</div>
+<p>You need to run the ollama server on a compute node and connect the ollama cli to it. in order to do both on the same node, do the following:</p>
+<ol class="arabic simple">
+<li><p>Log onto the development node</p></li>
+<li><p>Load the ollama module with <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">GCC</span> <span class="pre">ollama</span></code></p></li>
+<li><p>Allocate an interactive session on a compute node: <code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">-p</span> <span class="pre">cn-eth</span> <span class="pre">-N1</span> <span class="pre">--cpus-per-task=128</span> <span class="pre">--pty</span> <span class="pre">bash</span> <span class="pre">--login</span></code></p></li>
+<li><p>Run the ollama server on that node with <code class="docutils literal notranslate"><span class="pre">ollama</span> <span class="pre">serve</span></code></p></li>
+<li><p>From the dev node run another interactive session in the previously allocated job by using: <code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">--jobid=&lt;JOBID&gt;</span> <span class="pre">--overlap</span> <span class="pre">--pty</span> <span class="pre">bash</span> <span class="pre">--login</span></code></p></li>
+<li><p>(You can query your job id with i.e. <code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">--me</span></code>)</p></li>
+<li><p>In that session, run the prompt, for example <code class="docutils literal notranslate"><span class="pre">ollama</span> <span class="pre">run</span> <span class="pre">deepseek-r1:70b</span></code></p></li>
+<li><p>Enter your prompt</p></li>
+</ol>
+<p>Currently, only the CPU version is installed. An accelerated Version that can utilize the Ascend Cards on the ml01 node is a WIP</p>
+</section>
 </section>
 </section>
 
@@ -297,6 +316,7 @@ $ squeue
 <li class="toctree-l1"><a class="reference internal" href="atc_guide.html">ATC Environment Setup &amp; User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hpc_challenge_benchmark.html">HPC Challenge Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq_and_links.html">FAQ’s and Useful Links for Ascend, ATC, Pytorch, Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes.html">Kubernetes</a></li>
 </ul>
 
           <search role="search">

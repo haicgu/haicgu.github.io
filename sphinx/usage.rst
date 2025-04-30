@@ -249,3 +249,24 @@ To make the module available please use::
 You can then load the module with::
 
     $ module load armie
+
+
+Ollama:
+^^^^^^^
+
+Ollama is installed as an Easybuild module, to load it::
+
+    $ module load GCC ollama
+
+You need to run the ollama server on a compute node and connect the ollama cli to it. in order to do both on the same node, do the following:
+
+#. Log onto the development node
+#. Load the ollama module with ``module load GCC ollama``
+#. Allocate an interactive session on a compute node: ``srun -p cn-eth -N1 --cpus-per-task=128 --pty bash --login``
+#. Run the ollama server on that node with ``ollama serve``
+#. From the dev node run another interactive session in the previously allocated job by using: ``srun --jobid=<JOBID> --overlap --pty bash --login``
+#. (You can query your job id with i.e. ``squeue --me``)
+#. In that session, run the prompt, for example ``ollama run deepseek-r1:70b``
+#. Enter your prompt
+
+Currently, only the CPU version is installed. An accelerated Version that can utilize the Ascend Cards on the ml01 node is a WIP
