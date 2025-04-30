@@ -55,3 +55,9 @@ There are multiple filesystems accessible to users on HAICGU
      - 5.2TB
      - -
      - TODO
+
+S3 Access
+=========
+
+HAICGU has an S3 Access Point. Please contact haicgu@fias.uni-frankfurt.de for access.
+
